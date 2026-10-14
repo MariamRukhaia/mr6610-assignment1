@@ -25,7 +25,7 @@ def get_verification_proof(log_index, debug=False):
     except (ValueError, TypeError):
         raise ValueError("Invalid log index")
     
-    data = get_log_entry(log_index)
+    data = get_log_entry(log_index, debug)
     entry = list(data.values())[0]
 
     return entry["verification"]["inclusionProof"]
@@ -43,7 +43,7 @@ def inclusion(log_index, artifact_filepath, debug=False):
     if not os.path.isfile(artifact_filepath):
         raise ValueError("Invalid artifact filepath")
     
-    data = get_log_entry(log_index)
+    data = get_log_entry(log_index, debug)
     entry = list(data.values())[0]
     decoded_body = base64.b64decode(entry["body"])
     body = json.loads(decoded_body)
@@ -58,7 +58,7 @@ def inclusion(log_index, artifact_filepath, debug=False):
     verify_artifact_signature(signature, public_key, artifact_filepath)
 
     # get_verification_proof(log_index)
-    proof = get_verification_proof(log_index)
+    proof = entry["verification"]["inclusionProof"]
 
     # verify_inclusion(DefaultHasher, index, tree_size, leaf_hash, hashes, root_hash)
     leaf_hash = compute_leaf_hash(entry["body"])
@@ -85,7 +85,7 @@ def consistency(prev_checkpoint, debug=False):
         raise ValueError("Previous checkpoint cannot be empty")
     
     # get_latest_checkpoint()
-    latest_checkpoint = get_latest_checkpoint()
+    latest_checkpoint = get_latest_checkpoint(debug)
 
     response = requests.get(f"{URL}/log/proof", params={"firstSize": prev_checkpoint["treeSize"],
                                                         "lastSize": latest_checkpoint["treeSize"],
@@ -132,7 +132,10 @@ def main():
         # if debug is enabled, store it in a file checkpoint.json
         checkpoint = get_latest_checkpoint(debug)
         print(json.dumps(checkpoint, indent=4))
-    if args.inclusion:
+    if args.inclusion is not None:
+        if not args.artifact:
+            print("please specify artifact filepath with --artifact")
+            return
         inclusion(args.inclusion, args.artifact, debug)
     if args.consistency:
         if not args.tree_id:
