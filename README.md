@@ -159,4 +159,4 @@ See the [LICENSE](LICENSE) file for licensing terms.
 
 ---
 
-**New York University — CS-GY 9223: Software Supply Chain Security**
+**New York University - CS-GY 9223: Software Supply Chain Security**
