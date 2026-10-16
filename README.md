@@ -80,10 +80,6 @@ poetry run python main.py --inclusion <LOG_INDEX> --artifact <ARTIFACT_PATH>
 poetry run python main.py --consistency --tree-id <TREE_ID> --tree-size <TREE_SIZE> --root-hash <ROOT_HASH>
 ```
 
-**Debug mode** (saves the checkpoint to `checkpoint.json`)
-```bash
-poetry run python main.py -d -c
-```
 
 ## Project Structure
 
