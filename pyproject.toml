@@ -1,0 +1,52 @@
+[project]
+name = "sscs"
+version = "0.1.0"
+description = "hw2 - part 2"
+authors = [
+    {name = "Mariam Rukhaia",email = "mr6610@nyu.edu"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "requests (>=2.34.2,<3.0.0)",
+    "cryptography (>=50.0.2,<51.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "ruff (>=0.17.1,<0.18.0)",
+    "mypy (>=2.4.0,<3.0.0)",
+    "bandit (>=1.9.4,<2.0.0)",
+    "types-requests (>=2.33.0.20261006,<3.0.0.0)",
+    "pre-commit (>=4.7.0,<5.0.0)",
+    "pytest (>=9.1.1,<10.0.0)",
+    "pytest-cov (>=7.1.0,<8.0.0)"
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "RUF", "FURB", "BLE", "EXE"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.12"
+files = ["main.py", "merkle_proof.py", "util.py"]
+
+[tool.bandit]
+targets = ["main.py", "merkle_proof.py", "util.py"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v"
