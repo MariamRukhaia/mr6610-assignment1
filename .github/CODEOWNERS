@@ -1,2 +1,9 @@
 # Default owner for everything in the repo
 * @MariamRukhaia
+
+# Verification logic
+/main.py @MariamRukhaia
+
+# Tests and repo configuration
+/tests/ @MariamRukhaia
+/.github/ @MariamRukhaia
