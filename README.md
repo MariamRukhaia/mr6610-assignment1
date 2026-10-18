@@ -106,13 +106,13 @@ This project uses automated static analysis tools to maintain code quality and s
 ### Code Formatting
 
 ```bash
-poetry run ruff format .
+poetry run ruff format 
 ```
 
 ### Linting
 
 ```bash
-poetry run ruff check .
+poetry run ruff check 
 ```
 
 ### Type Checking
@@ -130,7 +130,7 @@ poetry run bandit -r . -f txt
 ### Verify Formatting
 
 ```bash
-poetry run ruff format --check .
+poetry run ruff format --check 
 ```
    ### Running Tests
 
