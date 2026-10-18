@@ -132,7 +132,21 @@ poetry run bandit -r . -f txt
 ```bash
 poetry run ruff format --check .
 ```
+   ### Running Tests
 
+```bash
+   poetry run pytest
+```
+
+   This runs the test suite in `tests/` and prints a coverage report.
+
+   ### Pre-commit Hook
+
+```bash
+   poetry run pre-commit install
+```
+
+   This installs a TruffleHog hook that scans each commit for secrets.
 ## Code Quality
 
 The project uses the following automated quality checks:
