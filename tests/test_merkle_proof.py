@@ -72,18 +72,14 @@ def test_verify_match_failure():
 def test_inclusion_single_leaf():
     leaf = DefaultHasher.hash_leaf(b"hello")
 
-    verify_inclusion(
-        DefaultHasher, 0, 1, leaf.hex(), [], leaf.hex()
-    )
+    verify_inclusion(DefaultHasher, 0, 1, leaf.hex(), [], leaf.hex())
 
 
 def test_inclusion_invalid_index():
     leaf = DefaultHasher.hash_leaf(b"hello")
 
     with pytest.raises(ValueError):
-        verify_inclusion(
-            DefaultHasher, 1, 1, leaf.hex(), [], leaf.hex()
-        )
+        verify_inclusion(DefaultHasher, 1, 1, leaf.hex(), [], leaf.hex())
 
 
 def test_inclusion_wrong_root():
@@ -91,9 +87,7 @@ def test_inclusion_wrong_root():
     wrong_root = bytes(32).hex()
 
     with pytest.raises(RootMismatchError):
-        verify_inclusion(
-            DefaultHasher, 0, 1, leaf.hex(), [], wrong_root
-        )
+        verify_inclusion(DefaultHasher, 0, 1, leaf.hex(), [], wrong_root)
 
 
 def test_consistency_equal_trees():
