@@ -10,3 +10,8 @@ checkpoint.json
 .env
 *.pem
 *.key
+*.log
+dist/
+build/
+*.egg-info/
+.DS_Store
