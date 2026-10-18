@@ -80,25 +80,6 @@ poetry run python main.py --inclusion <LOG_INDEX> --artifact <ARTIFACT_PATH>
 poetry run python main.py --consistency --tree-id <TREE_ID> --tree-size <TREE_SIZE> --root-hash <ROOT_HASH>
 ```
 
-
-## Project Structure
-
-```text
-.
-├── main.py                  # CLI and Rekor API interactions
-├── merkle_proof.py          # Merkle proof verification
-├── util.py                  # Cryptographic utility functions
-├── scripts/                 # Supporting scripts
-├── pyproject.toml           # Dependencies and tool configuration
-├── poetry.lock              # Locked dependency versions
-├── README.md                # Project documentation
-├── SECURITY.md              # Vulnerability reporting policy
-├── CONTRIBUTING.md          # Contribution guidelines
-├── LICENSE                  # Project license
-└── .github/
-    └── CODEOWNERS          # Code ownership rules
-```
-
 ## Development
 
 This project uses automated static analysis tools to maintain code quality and security.
