@@ -1,5 +1,14 @@
 # Security Policy
 
+## Supported Versions
+
+Only the latest version on the `main` branch receives security updates.
+
+| Version | Supported |
+|---|---|
+| 0.1.x (latest `main`) | Yes |
+| Older commits | No |
+
 ## Reporting a Vulnerability
 
 Please **do not** open a public GitHub issue for security vulnerabilities.
